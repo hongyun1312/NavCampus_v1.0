@@ -1,4 +1,4 @@
-# 3D校园浏览 3D_SchoolView
+# 智慧校园综合导航平台
 > **省级大学生创新创业训练计划验收通过项目** | **IEEE EI 核心检索会议论文工程化落地项目** | **大学生计算机设计竞赛省级二等奖项目**
 >
 > ![Java Version](https://img.shields.io/badge/Java-17-blue)

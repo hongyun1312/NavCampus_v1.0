@@ -1,0 +1,130 @@
+:root {
+  --color-primary: #3B82F6; /* 蓝 */
+  --color-success: #10B981; /* 绿 */
+  --color-warning: #F59E0B; /* 橙 */
+  --color-danger:  #EF4444; /* 红 */
+  --color-text:    #1F2937; /* 深灰 */
+  --color-muted:   #6B7280; /* 次要文字 */
+  --color-bg:      #F9FAFB; /* 背景 */
+  --color-surface: #FFFFFF; /* 卡片/面板 */
+  --elevation-1: 0 1px 2px rgba(0,0,0,0.06);
+  --elevation-2: 0 4px 10px rgba(0,0,0,0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --transition-fast: 150ms ease;
+}
+
+/* 覆盖 Element Plus 主题色变量，统一配色方案 */
+:root {
+  --el-color-primary: var(--color-primary);
+  --el-color-success: var(--color-success);
+  --el-color-warning: var(--color-warning);
+  --el-color-danger:  var(--color-danger);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 标题层级与间距（8px 网格） */
+h1 { font-size: 28px; font-weight: 700; margin: var(--space-3) 0 var(--space-2); }
+h2 { font-size: 22px; font-weight: 600; margin: var(--space-2) 0 var(--space-2); }
+h3 { font-size: 18px; font-weight: 600; margin: var(--space-2) 0 var(--space-1); }
+h4 { font-size: 16px; font-weight: 600; margin: var(--space-2) 0 var(--space-1); }
+p, .text { color: var(--color-text); }
+.muted { color: var(--color-muted); }
+
+/* 卡片与主容器 */
+.el-card {
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+.el-card:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-1px);
+}
+.el-main {
+  padding: var(--space-3);
+}
+.el-header {
+  background: var(--color-surface);
+  box-shadow: var(--elevation-1);
+}
+
+/* 按钮微交互与尺寸（最少48x48触达区域） */
+.el-button {
+  transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  min-height: 40px;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+}
+.el-button:hover {
+  box-shadow: var(--elevation-1);
+  transform: translateY(-0.5px);
+}
+.el-button.is-disabled,
+.el-button.is-loading {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* 表单控件反馈与间距 */
+.el-form-item {
+  margin-bottom: var(--space-2);
+}
+.el-input__inner, .el-select, .el-date-editor {
+  border-radius: var(--radius-sm);
+}
+.el-input.is-focus .el-input__wrapper,
+.el-select:hover .el-select__wrapper {
+  box-shadow: var(--elevation-1);
+}
+
+/* 表格优化：行高、悬停、密度 */
+.el-table {
+  --el-table-row-hover-bg-color: rgba(59,130,246,0.06);
+}
+.el-table .el-table__row {
+  height: 44px;
+}
+
+/* 导航区域与链接 */
+.el-header .el-space .el-button {
+  margin-left: var(--space-1);
+}
+.el-header a {
+  text-decoration: none;
+}
+
+/* 响应式：F型阅读与两栏栅格（自动堆叠） */
+@media (max-width: 1200px) {
+  .el-row { row-gap: var(--space-2); }
+}
+@media (max-width: 768px) {
+  .el-main { padding: var(--space-2); }
+  .el-header .el-space { flex-wrap: wrap; gap: var(--space-1); }
+  .el-card { margin-bottom: var(--space-2); }
+}
+
+/* 可访问性：键盘可见焦点、尊重减少动效 */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* 统一主题色变量兼容 App.vue 的 --theme-color */
+:root { --theme-color: var(--color-primary); }
+h2 { color: var(--theme-color); }
+

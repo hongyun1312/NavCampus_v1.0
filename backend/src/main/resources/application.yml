@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    # MySQL Configuration
+    # 替换为实际数据库连接地址
+    url: jdbc:mysql://【数据库IP:端口/数据库名】?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    # 替换为实际数据库用户名
+    username: 【数据库用户名】
+    # 替换为实际数据库密码
+    password: "【数据库密码】"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    
+    # H2 Local Database (Disabled)
+    # url: jdbc:h2:file:./data/accounting_db;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE
+    # username: sa
+    # password: 
+    # driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        # dialect: org.hibernate.dialect.H2Dialect
+  data:
+    redis:
+      # 替换为实际 Redis 主机地址
+      host: 【Redis主机地址】
+      # 替换为实际 Redis 端口
+      port: 【Redis端口】
+      # 替换为实际 Redis 密码
+      password: 【Redis密码】
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 100ms
+
+jwt:
+  # 替换为实际 JWT 密钥（建议使用至少256位随机字符串）
+  secret: 【JWT密钥】
+  # 根据需求调整 Token 过期时间（单位：毫秒）
+  expiration: 86400000 # 1 day
+
+logging:
+  level:
+    com.hongyun.accounting: DEBUG

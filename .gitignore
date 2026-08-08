@@ -1,0 +1,42 @@
+# Build artifacts
+backend/target/
+**/target/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# Node
+node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+
+# Logs
+*.log
+
+# ============================================================
+# 敏感信息文件（禁止提交到 Git）
+# ============================================================
+
+# 本地环境配置（含真实密码，仅本地使用）
+application-local.yml
+application-local.properties
+
+# 连接信息文档（含数据库/Redis 凭证）
+docs/数据库连接信息.md
+
+# 运维记录（含服务器IP、密码等）
+ops/
+
+# 3D 模型资源文件（体积过大，不适合 Git 管理）
+frontend/public/assets/models/

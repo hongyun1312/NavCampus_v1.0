@@ -1,0 +1,16 @@
+# 开发环境配置
+spring:
+  datasource:
+    druid:
+      initial-size: 2
+      min-idle: 2
+      max-active: 10
+
+logging:
+  level:
+    com.hongyun.navcampus: DEBUG
+    org.springframework.security: DEBUG
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

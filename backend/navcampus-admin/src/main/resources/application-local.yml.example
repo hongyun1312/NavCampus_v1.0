@@ -1,0 +1,24 @@
+# ============================================================
+# 本地开发环境配置模板
+# ============================================================
+# 使用方法：
+#   1. 复制本文件为 application-local.yml
+#   2. 填入实际的数据库和 Redis 连接信息
+#   3. 启动时指定 Profile: --spring.profiles.active=local
+#
+# ⚠️ application-local.yml 已被 .gitignore 排除，不会提交到 Git
+# ============================================================
+
+spring:
+  datasource:
+    url: jdbc:mysql://YOUR_MYSQL_HOST:YOUR_MYSQL_PORT/navcampus?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    username: YOUR_MYSQL_USERNAME
+    password: YOUR_MYSQL_PASSWORD
+  data:
+    redis:
+      host: YOUR_REDIS_HOST
+      port: YOUR_REDIS_PORT
+      password: YOUR_REDIS_PASSWORD
+
+jwt:
+  secret: YOUR_JWT_SECRET_KEY_AT_LEAST_32_BYTES_LONG

@@ -1,0 +1,46 @@
+/**
+ * 全局基础样式重置。
+ * 仅保留最小化的重置规则，主题配色由 styles/ui.css 统一管理。
+ */
+
+/* 盒模型重置：所有元素使用 border-box，确保尺寸计算一致 */
+* {
+  box-sizing: border-box;
+}
+
+/* 页面主体：移除默认边距，全屏铺满 */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* 应用根节点：全屏铺满，不限制宽度 */
+#app {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* 链接基础样式 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 滚动条美化（WebKit 内核浏览器） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
